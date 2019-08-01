@@ -10,7 +10,15 @@ body {
   overflow: hidden;
 }
 
+.slider {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
 .slide:first-child {
+  opacity: 0;
   background: url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
 }
 
@@ -21,7 +29,8 @@ body {
 }
 
 .slide:nth-child(2) {
-  background: url("../data/Slide-2-DT.jpg") no-repeat;
+  opacity: 0;
+  background: url("../data/Slide-2-DT.jpg") no-repeat center center/cover;
 }
 
 .slide.current:nth-child(2) {
@@ -30,18 +39,25 @@ body {
   transition: all 1s ease-in-out 0.1s;
 }
 
-@media (max-width: 768px) {
-  .slide:first-child {
-    background: url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
-  }
-  .slide:nth-child(2) {
-    background: url("../data/Slide-2-MB.jpg") no-repeat;
-  }
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* only the slide which is active will have opacity 1*/
+  opacity: 0;
+  /* transitions will be set in js */
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
 }
 
 button.nav {
   position: absolute;
-  top: 60%;
   border-radius: 6px;
   opacity: 2;
   height: 50px;
@@ -97,61 +113,99 @@ button.cta {
   font-weight: bold;
 }
 
-@media (max-width: 500px) {
+@media only screen and (min-width: 325px) and (max-width: 768px) {
+  /* for any screen less than 768px
+    * use the Mobile specific images */
+  .slide:first-child {
+    background: url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(2) {
+    background: url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+  }
+  .slide .content {
+    position: absolute;
+    bottom: 20%;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    padding: 10px;
+    margin: 10px;
+  }
+  .slide:nth-child(odd) .content {
+    left: -100px;
+  }
+  .slide:nth-child(even) .content {
+    right: -100px;
+  }
+  .slide:nth-child(odd).current .content {
+    opacity: 1;
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    -webkit-transition: all 0.7s ease-in-out 0.3s;
+    transition: all 0.7s ease-in-out 0.3s;
+    border-radius: 5px;
+  }
+  /* add the styles for the current slide */
+  .slide:nth-child(even).current .content {
+    opacity: 1;
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    -webkit-transition: all 0.7s ease-in-out 0.3s;
+    transition: all 0.7s ease-in-out 0.3s;
+    border-radius: 5px;
+  }
   button.nav {
-    visibility: hidden;
+    top: 50%;
+    height: 35px;
+    width: 50px;
   }
 }
 
-.slider {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  /* only the slide which is active will have opacity 1*/
-  opacity: 0;
-  /* transitions will be set in js */
-  -webkit-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.slide.current {
-  opacity: 1;
-}
-
-.slide .content {
-  /* initial styling for the slide content */
-  position: absolute;
-  bottom: 35%;
-  color: white;
-  padding: 50px;
-  opacity: 0;
-}
-
-.slide .content h1 {
-  font-size: 50px;
-}
-
-.slide:nth-child(odd) .content {
-  width: 600px;
-  left: -600px;
-}
-
-/* add the styles for the current slide */
-.slide:nth-child(odd).current .content {
-  opacity: 1;
-  -webkit-transform: translateX(600px);
-          transform: translateX(600px);
-  -webkit-transition: all 0.7s ease-in-out 0.3s;
-  transition: all 0.7s ease-in-out 0.3s;
-  border-radius: 5px;
+@media only screen and (max-width: 325px) {
+  /* for any screen less than 768px
+    * use the Mobile specific images */
+  .slide:first-child {
+    background: url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(2) {
+    background: url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+  }
+  .slide .content {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+    font-size: 10px;
+    opacity: 0;
+    padding: 10px;
+    margin: 10px;
+  }
+  .slide:nth-child(odd) .content {
+    left: -100px;
+  }
+  .slide:nth-child(even) .content {
+    right: -100px;
+  }
+  .slide:nth-child(odd).current .content {
+    opacity: 1;
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    -webkit-transition: all 0.7s ease-in-out 0.3s;
+    transition: all 0.7s ease-in-out 0.3s;
+    border-radius: 5px;
+  }
+  /* add the styles for the current slide */
+  .slide:nth-child(even).current .content {
+    opacity: 1;
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    -webkit-transition: all 0.7s ease-in-out 0.3s;
+    transition: all 0.7s ease-in-out 0.3s;
+    border-radius: 5px;
+  }
+  button.nav {
+    top: 50%;
+    height: 35px;
+    width: 50px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

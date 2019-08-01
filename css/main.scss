@@ -2,56 +2,100 @@
 @import "slides";
 @import "button";
 
-.slider {
-    height:100vh;
-    width:100vw;
-    position: relative;
-    overflow: hidden;
-}
 
-.slide {
-    position: absolute;
-    top:0;
-    left:0;
-    height: 100%;
-    width:100%;
+@media only screen and (min-width:325px) and (max-width: 768px){
 
-    /* only the slide which is active will have opacity 1*/
-    opacity: 0;
+    /* for any screen less than 768px
+    * use the Mobile specific images */
+    .slide:first-child{
+        background:url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+    }
+    .slide:nth-child(2){
+        background:url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+    }
 
-    /* transitions will be set in js */
-    transition: opacity 0.4s ease-in-out;
-}
+    .slide .content {
+        position: absolute;
+        bottom: 20%;
+        color: white;
+        font-size: 20px;
+        opacity: 0;
+        padding:10px;
+        margin:10px;
+    }
+    .slide:nth-child(odd) .content {
+        left:-100px;
+    }
 
-.slide.current{
-    opacity: 1;
-}
+    .slide:nth-child(even) .content{
+        right:-100px;
+    }
 
-.slide .content {
-    /* initial styling for the slide content */
-    position: absolute;
-    bottom:35%;
-    color: white;
-    padding:50px;
-    opacity: 0;
+    .slide:nth-child(odd).current .content {
+        opacity: 1;
+        transform: translateX(200px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
 
-    h1{
-        font-size: 50px;
+    /* add the styles for the current slide */
+    .slide:nth-child(even).current .content {
+        opacity: 1;
+        transform: translateX(-150px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+    button.nav {
+        top:50%;
+        height:35px;
+        width:50px;
     }
 }
+@media only screen and (max-width:325px){
 
-.slide:nth-child(odd) .content {
-    width:600px;
-    left:-600px;
+    /* for any screen less than 768px
+    * use the Mobile specific images */
+    .slide:first-child{
+        background:url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+    }
+    .slide:nth-child(2){
+        background:url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+    }
+
+    .slide .content {
+        position: absolute;
+        bottom: 10%;
+        color: white;
+        font-size: 10px;
+        opacity: 0;
+        padding:10px;
+        margin:10px;
+    }
+    .slide:nth-child(odd) .content {
+        left:-100px;
+    }
+
+    .slide:nth-child(even) .content{
+        right:-100px;
+    }
+
+    .slide:nth-child(odd).current .content {
+        opacity: 1;
+        transform: translateX(200px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+
+    /* add the styles for the current slide */
+    .slide:nth-child(even).current .content {
+        opacity: 1;
+        transform: translateX(-150px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+    button.nav {
+        top:50%;
+        height:35px;
+        width:50px;
+    }
 }
-
-/* add the styles for the current slide */
-.slide:nth-child(odd).current .content {
-    opacity: 1;
-    transform: translateX(600px);
-    transition: all 0.7s ease-in-out 0.3s;
-    border-radius: 5px;
-}
-
-
-
