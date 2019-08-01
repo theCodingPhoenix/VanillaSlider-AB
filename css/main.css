@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.slider {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* only the slide which is active will have opacity 1*/
+  opacity: 0;
+  /* transitions will be set in js */
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide:first-child {
+  background: url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
+}
+
+.slide:nth-child(2) {
+  background: url("../data/Slide-2-DT.jpg") no-repeat;
+}
+/*# sourceMappingURL=main.css.map */
