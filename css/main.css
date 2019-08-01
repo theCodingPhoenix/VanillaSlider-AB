@@ -10,51 +10,33 @@ body {
   overflow: hidden;
 }
 
-.slider {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
+.slide:first-child {
+  background: url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  /* only the slide which is active will have opacity 1*/
-  opacity: 0;
-  /* transitions will be set in js */
-  -webkit-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.slide.current {
+.slide.current:first-child {
   opacity: 1;
+  -webkit-transition: all 1s ease-in-out 0.1s;
+  transition: all 1s ease-in-out 0.1s;
 }
 
-.slide .content {
-  position: absolute;
-  bottom: 35%;
-  color: white;
-  padding: 50px;
-  opacity: 0;
-  width: 600px;
-  left: -600px;
+.slide:nth-child(2) {
+  background: url("../data/Slide-2-DT.jpg") no-repeat;
 }
 
-.slide .content h1 {
-  font-size: 50px;
-}
-
-.slide.current .content {
+.slide.current:nth-child(2) {
   opacity: 1;
-  -webkit-transform: translateX(600px);
-          transform: translateX(600px);
-  -webkit-transition: all 0.7s ease-in-out 0.3s;
-  transition: all 0.7s ease-in-out 0.3s;
-  border-radius: 5px;
+  -webkit-transition: all 1s ease-in-out 0.1s;
+  transition: all 1s ease-in-out 0.1s;
+}
+
+@media (max-width: 768px) {
+  .slide:first-child {
+    background: url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(2) {
+    background: url("../data/Slide-2-MB.jpg") no-repeat;
+  }
 }
 
 button.nav {
@@ -64,7 +46,7 @@ button.nav {
   opacity: 2;
   height: 50px;
   width: 75px;
-  background-color: #F8F8F8;
+  background-color: #f0f0f5;
   cursor: pointer;
   outline: none;
 }
@@ -102,7 +84,7 @@ button.cta {
 }
 
 .cta-white {
-  background-color: getColor(cta-white);
+  background-color: #FFF;
   color: black;
   padding-right: 25px;
   padding-left: 40px;
@@ -115,11 +97,61 @@ button.cta {
   font-weight: bold;
 }
 
-.slide:first-child {
-  background: url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
+@media (max-width: 500px) {
+  button.nav {
+    visibility: hidden;
+  }
 }
 
-.slide:nth-child(2) {
-  background: url("../data/Slide-2-DT.jpg") no-repeat;
+.slider {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* only the slide which is active will have opacity 1*/
+  opacity: 0;
+  /* transitions will be set in js */
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide .content {
+  /* initial styling for the slide content */
+  position: absolute;
+  bottom: 35%;
+  color: white;
+  padding: 50px;
+  opacity: 0;
+}
+
+.slide .content h1 {
+  font-size: 50px;
+}
+
+.slide:nth-child(odd) .content {
+  width: 600px;
+  left: -600px;
+}
+
+/* add the styles for the current slide */
+.slide:nth-child(odd).current .content {
+  opacity: 1;
+  -webkit-transform: translateX(600px);
+          transform: translateX(600px);
+  -webkit-transition: all 0.7s ease-in-out 0.3s;
+  transition: all 0.7s ease-in-out 0.3s;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,7 +1,8 @@
 @import "reset";
+@import "slides";
+@import "button";
 
 .slider {
-
     height:100vh;
     width:100vw;
     position: relative;
@@ -9,7 +10,6 @@
 }
 
 .slide {
-
     position: absolute;
     top:0;
     left:0;
@@ -28,84 +28,30 @@
 }
 
 .slide .content {
+    /* initial styling for the slide content */
     position: absolute;
     bottom:35%;
     color: white;
     padding:50px;
     opacity: 0;
-    width:600px;
-    left:-600px;
 
     h1{
         font-size: 50px;
     }
 }
 
-.slide.current .content {
+.slide:nth-child(odd) .content {
+    width:600px;
+    left:-600px;
+}
+
+/* add the styles for the current slide */
+.slide:nth-child(odd).current .content {
     opacity: 1;
     transform: translateX(600px);
     transition: all 0.7s ease-in-out 0.3s;
     border-radius: 5px;
 }
 
-button.nav {
-    position:absolute;
-    top:60%;
-    border-radius: 6px;
-    opacity: 2;
-    height:50px;
-    width:75px;
-    background-color: #F8F8F8;
-    cursor: pointer;
-    outline:none;
-}
 
-button#next {
-    border-radius: 10px 0 0 20px; 
-    right:1px;    
-    clip-path: polygon(22% 13%, 99% 0, 100% 100%, 9% 99%);    
-}
 
-button#prev {
-    border-radius: 0 10px 10px 0; 
-    left:1px;
-    clip-path: polygon(0 0, 100% 11%, 82% 100%, 0 100%);
-}
-
-button.cta {
-    transform: skew(-20deg);
-    border-radius: 10px;
-    white-space: nowrap;
-    box-shadow: 0 0 0 ;
-    padding-top:10px;
-    padding-bottom:10px;
-}
-
-.cta-blue {
-
-    background-color: #1da1f2;
-    color: white;
-    padding-right:25px;
-    padding-left:40px;
-}
-
-.cta-white {
-
-    background-color: getColor(cta-white);
-    color: black;
-    padding-right:25px;
-    padding-left:40px;
-}
-
-.button-skew-fix {
-    display:inline-block;
-    transform: skew(20deg);
-    font-weight:bold;
-}
-
-.slide:first-child{
-    background:url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
-}
-.slide:nth-child(2){
-    background:url("../data/Slide-2-DT.jpg") no-repeat;
-}
