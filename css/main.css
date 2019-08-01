@@ -26,12 +26,93 @@ body {
   /* only the slide which is active will have opacity 1*/
   opacity: 0;
   /* transitions will be set in js */
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .slide.current {
   opacity: 1;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 35%;
+  color: white;
+  padding: 50px;
+  opacity: 0;
+  width: 600px;
+  left: -600px;
+}
+
+.slide .content h1 {
+  font-size: 50px;
+}
+
+.slide.current .content {
+  opacity: 1;
+  -webkit-transform: translateX(600px);
+          transform: translateX(600px);
+  -webkit-transition: all 0.7s ease-in-out 0.3s;
+  transition: all 0.7s ease-in-out 0.3s;
+  border-radius: 5px;
+}
+
+button.nav {
+  position: absolute;
+  top: 60%;
+  border-radius: 6px;
+  opacity: 2;
+  height: 50px;
+  width: 75px;
+  background-color: #F8F8F8;
+  cursor: pointer;
+  outline: none;
+}
+
+button#next {
+  border-radius: 10px 0 0 20px;
+  right: 1px;
+  -webkit-clip-path: polygon(22% 13%, 99% 0, 100% 100%, 9% 99%);
+          clip-path: polygon(22% 13%, 99% 0, 100% 100%, 9% 99%);
+}
+
+button#prev {
+  border-radius: 0 10px 10px 0;
+  left: 1px;
+  -webkit-clip-path: polygon(0 0, 100% 11%, 82% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 11%, 82% 100%, 0 100%);
+}
+
+button.cta {
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
+  border-radius: 10px;
+  white-space: nowrap;
+  -webkit-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.cta-blue {
+  background-color: #1da1f2;
+  color: white;
+  padding-right: 25px;
+  padding-left: 40px;
+}
+
+.cta-white {
+  background-color: getColor(cta-white);
+  color: black;
+  padding-right: 25px;
+  padding-left: 40px;
+}
+
+.button-skew-fix {
+  display: inline-block;
+  -webkit-transform: skew(20deg);
+          transform: skew(20deg);
+  font-weight: bold;
 }
 
 .slide:first-child {
