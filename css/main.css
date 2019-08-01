@@ -57,6 +57,7 @@ body {
 }
 
 button.nav {
+  top: 50%;
   position: absolute;
   border-radius: 6px;
   opacity: 2;
@@ -90,6 +91,7 @@ button.cta {
           box-shadow: 0 0 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .cta-blue {
@@ -111,6 +113,51 @@ button.cta {
   -webkit-transform: skew(20deg);
           transform: skew(20deg);
   font-weight: bold;
+}
+
+.slide .content {
+  position: absolute;
+  top: 50%;
+  color: white;
+  /* opacity is the visual cue that the slide is focussed
+    opacity 0 means this is not the current slide */
+  opacity: 0;
+  padding: 10px;
+  margin: 10px;
+}
+
+.slide .content h1 {
+  font-size: 50px;
+}
+
+/* when not the focussed (odd) slide, pull the content out to left*/
+.slide:nth-child(odd) .content {
+  left: -600px;
+}
+
+/* when not the focussed (odd) slide, push the content out to right*/
+.slide:nth-child(even) .content {
+  right: -100px;
+}
+
+/* add the styles for the current slide if it's an odd slide
+the text transition occurs from left to right */
+.slide:nth-child(odd).current .content {
+  opacity: 1;
+  -webkit-transform: translateX(700px);
+          transform: translateX(700px);
+  -webkit-transition: all 0.7s ease-in-out 0.3s;
+  transition: all 0.7s ease-in-out 0.3s;
+}
+
+/* add the styles for the current slide if it's an even slide
+the text transition occurs from right to left */
+.slide:nth-child(even).current .content {
+  opacity: 1;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+  -webkit-transition: all 0.7s ease-in-out 0.3s;
+  transition: all 0.7s ease-in-out 0.3s;
 }
 
 @media only screen and (min-width: 325px) and (max-width: 768px) {
