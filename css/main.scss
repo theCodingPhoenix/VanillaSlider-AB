@@ -1,111 +1,141 @@
 @import "reset";
-
-.slider {
-
-    height:100vh;
-    width:100vw;
-    position: relative;
-    overflow: hidden;
-}
-
-.slide {
-
-    position: absolute;
-    top:0;
-    left:0;
-    height: 100%;
-    width:100%;
-
-    /* only the slide which is active will have opacity 1*/
-    opacity: 0;
-
-    /* transitions will be set in js */
-    transition: opacity 0.4s ease-in-out;
-}
-
-.slide.current{
-    opacity: 1;
-}
+@import "slides";
+@import "button";
 
 .slide .content {
     position: absolute;
-    bottom:35%;
+    top: 50%;
     color: white;
-    padding:50px;
-    opacity: 0;
-    width:600px;
-    left:-600px;
 
-    h1{
+    /* opacity is the visual cue that the slide is focussed
+    opacity 0 means this is not the current slide */
+    opacity: 0;
+    padding:10px;
+    margin:10px;
+    h1 {
         font-size: 50px;
     }
 }
 
-.slide.current .content {
+/* when not the focussed (odd) slide, pull the content out to left*/
+.slide:nth-child(odd) .content {
+    left:-600px;
+}
+
+/* when not the focussed (odd) slide, push the content out to right*/
+.slide:nth-child(even) .content{
+    right:-100px;
+}
+
+/* add the styles for the current slide if it's an odd slide
+the text transition occurs from left to right */
+.slide:nth-child(odd).current .content {
     opacity: 1;
-    transform: translateX(600px);
+    transform: translateX(700px);
     transition: all 0.7s ease-in-out 0.3s;
-    border-radius: 5px;
 }
 
-button.nav {
-    position:absolute;
-    top:60%;
-    border-radius: 6px;
-    opacity: 2;
-    height:50px;
-    width:75px;
-    background-color: #F8F8F8;
-    cursor: pointer;
-    outline:none;
+/* add the styles for the current slide if it's an even slide
+the text transition occurs from right to left */
+.slide:nth-child(even).current .content {
+    opacity: 1;
+    transform: translateX(-200px);
+    transition: all 0.7s ease-in-out 0.3s;
 }
 
-button#next {
-    border-radius: 10px 0 0 20px; 
-    right:1px;    
-    clip-path: polygon(22% 13%, 99% 0, 100% 100%, 9% 99%);    
+@media only screen and (min-width:325px) and (max-width: 768px){
+
+    /* for any screen less than 768px
+    * use the Mobile specific images */
+    .slide:first-child{
+        background:url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+    }
+    .slide:nth-child(2){
+        background:url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+    }
+
+    .slide .content {
+        position: absolute;
+        bottom: 20%;
+        color: white;
+        font-size: 20px;
+        opacity: 0;
+        padding:10px;
+        margin:10px;
+    }
+    .slide:nth-child(odd) .content {
+        left:-100px;
+    }
+
+    .slide:nth-child(even) .content{
+        right:-100px;
+    }
+
+    .slide:nth-child(odd).current .content {
+        opacity: 1;
+        transform: translateX(200px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+
+    /* add the styles for the current slide */
+    .slide:nth-child(even).current .content {
+        opacity: 1;
+        transform: translateX(-150px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+    button.nav {
+        top:50%;
+        height:35px;
+        width:50px;
+    }
 }
+@media only screen and (max-width:325px){
 
-button#prev {
-    border-radius: 0 10px 10px 0; 
-    left:1px;
-    clip-path: polygon(0 0, 100% 11%, 82% 100%, 0 100%);
-}
+    /* for any screen less than 768px
+    * use the Mobile specific images */
+    .slide:first-child{
+        background:url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
+    }
+    .slide:nth-child(2){
+        background:url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
+    }
 
-button.cta {
-    transform: skew(-20deg);
-    border-radius: 10px;
-    white-space: nowrap;
-    box-shadow: 0 0 0 ;
-    padding-top:10px;
-    padding-bottom:10px;
-}
+    .slide .content {
+        position: absolute;
+        bottom: 10%;
+        color: white;
+        font-size: 10px;
+        opacity: 0;
+        padding:10px;
+        margin:10px;
+    }
+    .slide:nth-child(odd) .content {
+        left:-100px;
+    }
 
-.cta-blue {
+    .slide:nth-child(even) .content{
+        right:-100px;
+    }
 
-    background-color: #1da1f2;
-    color: white;
-    padding-right:25px;
-    padding-left:40px;
-}
+    .slide:nth-child(odd).current .content {
+        opacity: 1;
+        transform: translateX(200px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
 
-.cta-white {
-
-    background-color: getColor(cta-white);
-    color: black;
-    padding-right:25px;
-    padding-left:40px;
-}
-
-.button-skew-fix {
-    display:inline-block;
-    transform: skew(20deg);
-    font-weight:bold;
-}
-
-.slide:first-child{
-    background:url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
-}
-.slide:nth-child(2){
-    background:url("../data/Slide-2-DT.jpg") no-repeat;
+    /* add the styles for the current slide */
+    .slide:nth-child(even).current .content {
+        opacity: 1;
+        transform: translateX(-150px);
+        transition: all 0.7s ease-in-out 0.3s;
+        border-radius: 5px;
+    }
+    button.nav {
+        top:50%;
+        height:35px;
+        width:50px;
+    }
 }

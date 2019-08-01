@@ -2,9 +2,6 @@ const slides = document.querySelectorAll('.slide');
 const nextButton = document.querySelectorAll("#next");
 const prevButton = document.querySelectorAll("#prev");
 
-console.log(slides);
-console.log(nextButton);
-
 const nextSlide = () => {
 
     // grab the div which has the 'current' class
