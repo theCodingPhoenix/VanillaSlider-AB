@@ -35,29 +35,21 @@
             font-size: 30px; 
          }
          @include for-size(phones-and-tabs) {    
-            font-size: 50px; 
+            font-size: 40px; 
          }
          @include for-size(desktop-up) {    
-            font-size: 70px; 
+            font-size: 50px; 
          }
          @include for-size(big-desktop-up) {    
-            font-size: 100px; 
+            font-size: 60px; 
          }
     }
 
     button.cta {
 
-        @include for-size(small-device) {    
-            font-size: 15px; 
-         }
-         @include for-size(phones-and-tabs) {    
-            font-size: 25px; 
-         }
-         @include for-size(desktop-up) {    
-            font-size: 30px; 
-         }
+         font-size:15px;
          @include for-size(big-desktop-up) {    
-            font-size: 30px; 
+            font-size: 20px; 
          }
     }
 }
