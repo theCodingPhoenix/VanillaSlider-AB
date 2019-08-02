@@ -10,11 +10,40 @@ body {
   overflow: hidden;
 }
 
+/* give the slider full height and width of the viewport
+position is relative as all other components will have an absolute position
+wrt the slider*/
 .slider {
   height: 100vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+}
+
+.indicator {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  border-radius: 50%;
+  border: 1px solid #004080;
+  display: inline-block;
+}
+
+.indicator.activeIndicator {
+  background-color: #004080;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
 }
 
 .slide:first-child {
@@ -57,10 +86,10 @@ body {
 }
 
 button.nav {
-  top: 50%;
   position: absolute;
+  top: 52%;
   border-radius: 6px;
-  opacity: 2;
+  opacity: 0.7;
   height: 50px;
   width: 75px;
   background-color: #f0f0f5;
