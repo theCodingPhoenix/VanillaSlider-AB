@@ -20,3 +20,9 @@ With regards to testing these, Chrone dev tools provide means to simulate multip
 
 ## JS
 This slider does not use any library hence the functionalities for sliding are added through JS which uses the ES6 syntax.
+
+
+# Project
+To test the slider
+1) Clone the repo onto local
+2) Open VanillaSlider-AB/html/index.html
