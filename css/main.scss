@@ -41,7 +41,23 @@
             font-size: 70px; 
          }
          @include for-size(big-desktop-up) {    
-            font-size: 80px; 
+            font-size: 100px; 
+         }
+    }
+
+    button.cta {
+
+        @include for-size(small-device) {    
+            font-size: 15px; 
+         }
+         @include for-size(phones-and-tabs) {    
+            font-size: 25px; 
+         }
+         @include for-size(desktop-up) {    
+            font-size: 30px; 
+         }
+         @include for-size(big-desktop-up) {    
+            font-size: 30px; 
          }
     }
 }
@@ -161,14 +177,10 @@ the text transition occurs from right to left */
     /* any small devices, make the buttons hidden
     but ensure that click propery remains 
     enlarge the are of the click */
-    button {
-        height:100%;
-        width:10%;
-        
-    }
     button.nav {
         top:2%;
         height:100%;
         opacity: 0;
+        width:10%;
     }
 }

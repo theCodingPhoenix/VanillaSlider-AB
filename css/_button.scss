@@ -13,6 +13,8 @@ button.nav {
 button#next {
     border-radius: 10px 0 0 20px; 
     right:1px;    
+
+    // style the shape of next button
     clip-path: polygon(22% 13%, 99% 0, 100% 100%, 9% 99%);    
     
 }
@@ -20,6 +22,8 @@ button#next {
 button#prev {
     border-radius: 0 10px 10px 0; 
     left:1px;
+
+    // style the shape of prev button
     clip-path: polygon(0 0, 100% 11%, 82% 100%, 0 100%);
 }
 
@@ -31,7 +35,6 @@ button.cta {
     box-shadow: 0 0 0 ;
     padding-top:10px;
     padding-bottom:10px;
-    cursor:pointer;
 }
 
 .cta-blue {
