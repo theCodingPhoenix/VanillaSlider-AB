@@ -39,7 +39,9 @@ button.cta {
     background-color: #1da1f2;
     color: white;
     padding-right:25px;
-    padding-left:40px;
+    padding-left:50px;
+    border: 1px solid #1da1f2;
+    text-shadow: 1px 1px 10px white;
 }
 
 .cta-white {
@@ -50,6 +52,7 @@ button.cta {
     padding-left:40px;
 }
 
+/* fix the text that has skewed along with the clippy buttons */
 .button-skew-fix {
     display:inline-block;
     transform: skew(20deg);
