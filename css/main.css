@@ -122,7 +122,6 @@ button.cta {
           box-shadow: 0 0 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  cursor: pointer;
 }
 
 .cta-blue {
@@ -182,7 +181,31 @@ button.cta {
 
 @media (min-width: 1600px) {
   .slide .content h1 {
-    font-size: 80px;
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 365px) {
+  .slide .content button.cta {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .slide .content button.cta {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide .content button.cta {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .slide .content button.cta {
+    font-size: 30px;
   }
 }
 
@@ -303,14 +326,11 @@ the text transition occurs from right to left */
   /* any small devices, make the buttons hidden
     but ensure that click propery remains 
     enlarge the are of the click */
-  button {
-    height: 100%;
-    width: 10%;
-  }
   button.nav {
     top: 2%;
     height: 100%;
     opacity: 0;
+    width: 10%;
   }
 }
 /*# sourceMappingURL=main.css.map */
