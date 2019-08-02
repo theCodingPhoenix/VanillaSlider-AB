@@ -51,6 +51,7 @@ wrt the slider*/
   background: url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
 }
 
+/* when the first slide is activated, transition to it slowly */
 .slide.current:first-child {
   opacity: 1;
   -webkit-transition: all 1s ease-in-out 0.1s;
@@ -62,6 +63,7 @@ wrt the slider*/
   background: url("../data/Slide-2-DT.jpg") no-repeat center center/cover;
 }
 
+/* when the second slide is activated, transition to it slowly */
 .slide.current:nth-child(2) {
   opacity: 1;
   -webkit-transition: all 1s ease-in-out 0.1s;
@@ -127,7 +129,9 @@ button.cta {
   background-color: #1da1f2;
   color: white;
   padding-right: 25px;
-  padding-left: 40px;
+  padding-left: 50px;
+  border: 1px solid #1da1f2;
+  text-shadow: 1px 1px 10px white;
 }
 
 .cta-white {
@@ -137,6 +141,7 @@ button.cta {
   padding-left: 40px;
 }
 
+/* fix the text that has skewed along with the clippy buttons */
 .button-skew-fix {
   display: inline-block;
   -webkit-transform: skew(20deg);
@@ -144,6 +149,7 @@ button.cta {
   font-weight: bold;
 }
 
+/* we will set our header content font side based on this mixin */
 .slide .content {
   position: absolute;
   top: 50%;
@@ -153,10 +159,31 @@ button.cta {
   opacity: 0;
   padding: 10px;
   margin: 10px;
+  /* include this font size mixin as it varies on different devices */
 }
 
-.slide .content h1 {
-  font-size: 50px;
+@media (max-width: 365px) {
+  .slide .content h1 {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .slide .content h1 {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide .content h1 {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .slide .content h1 {
+    font-size: 80px;
+  }
 }
 
 /* when not the focussed (odd) slide, pull the content out to left*/
@@ -189,7 +216,7 @@ the text transition occurs from right to left */
   transition: all 0.7s ease-in-out 0.3s;
 }
 
-@media only screen and (min-width: 325px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   /* for any screen less than 768px
     * use the Mobile specific images */
   .slide:first-child {
@@ -198,6 +225,9 @@ the text transition occurs from right to left */
   .slide:nth-child(2) {
     background: url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
   }
+}
+
+@media only screen and (min-width: 365px) and (max-width: 768px) {
   .slide .content {
     position: absolute;
     bottom: 20%;
@@ -208,15 +238,15 @@ the text transition occurs from right to left */
     margin: 10px;
   }
   .slide:nth-child(odd) .content {
-    left: -100px;
+    left: -150px;
   }
   .slide:nth-child(even) .content {
     right: -100px;
   }
   .slide:nth-child(odd).current .content {
     opacity: 1;
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(170px);
+            transform: translateX(170px);
     -webkit-transition: all 0.7s ease-in-out 0.3s;
     transition: all 0.7s ease-in-out 0.3s;
     border-radius: 5px;
@@ -237,18 +267,10 @@ the text transition occurs from right to left */
   }
 }
 
-@media only screen and (max-width: 325px) {
-  /* for any screen less than 768px
-    * use the Mobile specific images */
-  .slide:first-child {
-    background: url("../data/Slide-1-MB.jpg") no-repeat center center/cover;
-  }
-  .slide:nth-child(2) {
-    background: url("../data/Slide-2-MB.jpg") no-repeat center center/cover;
-  }
+@media only screen and (max-width: 365px) {
   .slide .content {
     position: absolute;
-    bottom: 10%;
+    top: 57.5%;
     color: white;
     font-size: 10px;
     opacity: 0;
@@ -263,8 +285,8 @@ the text transition occurs from right to left */
   }
   .slide:nth-child(odd).current .content {
     opacity: 1;
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
     -webkit-transition: all 0.7s ease-in-out 0.3s;
     transition: all 0.7s ease-in-out 0.3s;
     border-radius: 5px;
@@ -272,16 +294,23 @@ the text transition occurs from right to left */
   /* add the styles for the current slide */
   .slide:nth-child(even).current .content {
     opacity: 1;
-    -webkit-transform: translateX(-150px);
-            transform: translateX(-150px);
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
     -webkit-transition: all 0.7s ease-in-out 0.3s;
     transition: all 0.7s ease-in-out 0.3s;
     border-radius: 5px;
   }
+  /* any small devices, make the buttons hidden
+    but ensure that click propery remains 
+    enlarge the are of the click */
+  button {
+    height: 100%;
+    width: 10%;
+  }
   button.nav {
-    top: 50%;
-    height: 35px;
-    width: 50px;
+    top: 2%;
+    height: 100%;
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

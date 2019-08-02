@@ -2,6 +2,8 @@
     opacity: 0;
     background:url("../data/Slide-1-DT.jpg") no-repeat center center/cover;
 }
+
+/* when the first slide is activated, transition to it slowly */
 .slide.current:first-child{
    opacity: 1;
    transition: all 1s ease-in-out 0.1s;
@@ -10,6 +12,8 @@
     opacity: 0;
     background:url("../data/Slide-2-DT.jpg") no-repeat center center/cover;
 }
+
+/* when the second slide is activated, transition to it slowly */
 .slide.current:nth-child(2){
    opacity: 1;
    transition: all 1s ease-in-out 0.1s;
