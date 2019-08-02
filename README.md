@@ -33,4 +33,4 @@ This slider does not use any library hence the functionalities for sliding are a
 # Project
 To test the slider
 1) Clone the repo onto local
-2) Open VanillaSlider-AB/html/index.html
+2) Open VanillaSlider-AB/html/index.html in a browser
