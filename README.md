@@ -2,6 +2,16 @@
 
 The Slider is built using HTML5, CSS3 (and SASS) and VanillaJS (ES6).
 
+## Tools
+Tools:
+```
+Visual Studio Code
+Live Sass Compiler - extension
+Live Server - extension
+```
+
+Project has been built in Visual Studio Code. Please install a SASS compiler to compile scss files into css. (Project uses Live Sass compiler). 
+
 ## HTML
 The idea here is that although all slides by default are on the page, opacity defines which slide is currently active/visible to the user.
 I built the HTML just adding the slides:
