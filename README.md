@@ -11,7 +11,7 @@ I built the HTML just adding the slides:
 - Indicators are the bottom
 
 ## CSS
-To begin with I just added simple (but styles resembling the assets) for desktop so that I can test the slideshow (by adding my JS next). I created a transition which I wanted on the slides. The images to change opacity and text to slide in from left or right for odd or even slides simultaneously. I have used a few SASS features to keep the styles nice and 
+To begin with I just added simple (but styles resembling the assets, for e.g. button colours remain the same across devices) for desktop so that I can test the slideshow (by adding my JS next). I created a transition which I wanted on the slides. The images to change opacity and text to slide in from left or right for odd or even slides simultaneously. I have used a few SASS features to keep the styles nice and 
 
 ### The approach to Responsive web design
 As above, having sorted out what I wanted from the transition of slides, in order to cater for responsive websites the approach is to style for mobile first, in this case, using the breakpoints to style the elements as the viewport / screen size changes. You can see background images for the slides changing according to the device it is being displayed on and the transitions vary based on the same.
